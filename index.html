@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>VCtransition by Dalein</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>VCtransition</h1>
+        <p>DropDown ViewController transition (aka iOS 8 Mail app swipeable VC) in 200 strings</p>
+
+        <p class="view"><a href="https://github.com/Dalein/VCTransition">View the Project on GitHub <small>Dalein/VCTransition</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Dalein/VCTransition/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Dalein/VCTransition/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Dalein/VCTransition">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="vctransition" class="anchor" href="#vctransition" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VCTransition</h1>
+
+<p>The heart of this project is GITransition object, it adopts <code>UIViewControllerAnimatedTransitioning</code> and <code>UIGestureRecognizerDelegate</code> protocol, which allows you to have one view controller at the bottom, and on the same time keeping your main navigation separate. This was inspired by the iOS 8 emails implementation where you can have your new email open at the bottom while still viewing all your old emails above it.</p>
+
+<h1>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h1>
+
+<p><img src="https://raw.githubusercontent.com/Dalein/VCTransition/master/demo.gif" alt="Demo"></p>
+
+<h1>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h1>
+
+<div class="highlight highlight-source-objc"><pre>    transitionManager = [[GITransition <span class="pl-c1">alloc</span>] <span class="pl-c1">init</span>];
+    self.transitioningDelegate = transitionManager;
+
+    UIStoryboard *storyboard = [UIStoryboard <span class="pl-c1">storyboardWithName:</span><span class="pl-s"><span class="pl-pds">@"</span>Main<span class="pl-pds">"</span></span> <span class="pl-c1">bundle:</span><span class="pl-c1">nil</span>];
+    controller = [storyboard <span class="pl-c1">instantiateViewControllerWithIdentifier:</span><span class="pl-s"><span class="pl-pds">@"</span>vcAddNewGoal<span class="pl-pds">"</span></span>];
+    controller.transitioningDelegate = transitionManager;
+    controller.modalPresentationStyle = UIModalPresentationCustom;
+    controller.transitionManager = transitionManager;
+
+- (<span class="pl-k">IBAction</span>)show:(<span class="pl-k">id</span>)sender {
+    [<span class="pl-v">self</span> <span class="pl-c1">presentViewController:</span>controller <span class="pl-c1">animated:</span><span class="pl-c1">YES</span> <span class="pl-c1">completion:</span><span class="pl-c1">nil</span>];
+}</pre></div>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Copy GITransition folder into your project.</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+ this software and associated documentation files (the "Software"), to deal in
+ the Software without restriction, including without limitation the rights to
+ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+ of the Software, and to permit persons to whom the Software is furnished to do
+ so, subject to the following conditions:</p>
+
+<p>If you happen to meet one of the copyright holders in a bar you are obligated
+ to buy them one pint of beer.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Dalein">Dalein</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
