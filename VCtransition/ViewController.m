@@ -25,7 +25,7 @@
 
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad { 
     [super viewDidLoad];
     
     transitionManager = [[GITransition alloc] init];
