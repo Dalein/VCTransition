@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-const CGFloat kModalViewYOffset = 44.0;
-const CGFloat kModalViewNavBarHeight = 50.0;
-const CGFloat kNonModalViewMinScale = 0.9;
-const CGFloat kNonModalViewMinAlpha = 0.6;
+static const CGFloat kModalViewYOffset = 44.0;
+static const CGFloat kModalViewNavBarHeight = 50.0;
+static const CGFloat kNonModalViewMinScale = 0.9;
+static const CGFloat kNonModalViewMinAlpha = 0.6;
 
-@interface GITransition : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning,
+@interface GITransition : NSObject <UIViewControllerAnimatedTransitioning,
                                                                 UIViewControllerTransitioningDelegate,
                                                                 UIGestureRecognizerDelegate>
 
