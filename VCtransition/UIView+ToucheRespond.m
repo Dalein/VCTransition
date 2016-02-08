@@ -21,7 +21,7 @@
         for (UIView *subview in [self.subviews reverseObjectEnumerator]) {
             CGPoint convertedPoint = [subview convertPoint:point fromView:self];
             UIView *hitTestView = [subview hitTest:convertedPoint withEvent:event];
-            if (hitTestView && hitTestView.tag != 666) {
+            if (hitTestView && hitTestView.tag != GITransitionContainerViewTag) {
                 return hitTestView;
             }
         }

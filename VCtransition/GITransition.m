@@ -17,6 +17,8 @@
     BOOL reversed;
 }
 
+int const GITransitionContainerViewTag = 73;
+
 #pragma mark - UIViewControllerTransitioningDelegate
 
 - (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
@@ -46,7 +48,7 @@
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *containerView = [transitionContext containerView];
-    containerView.tag = 666;
+    containerView.tag = GITransitionContainerViewTag;
     
     CGRect finalFrameVC = [transitionContext finalFrameForViewController:toVC];
     NSTimeInterval duration = [self transitionDuration:transitionContext];
