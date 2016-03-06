@@ -9,4 +9,6 @@
 
 @interface UIView (ToucheRespond)
 
+- (UIView *)GI_hitTest:(CGPoint)point withEvent:(UIEvent *)event;
+
 @end

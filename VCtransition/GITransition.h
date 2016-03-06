@@ -12,7 +12,6 @@ static const CGFloat kModalViewYOffset = 44.0;
 static const CGFloat kModalViewNavBarHeight = 50.0;
 static const CGFloat kNonModalViewMinScale = 0.9;
 static const CGFloat kNonModalViewMinAlpha = 0.6;
-extern int const GITransitionContainerViewTag;
 
 @interface GITransition : NSObject <UIViewControllerAnimatedTransitioning,
                                                                 UIViewControllerTransitioningDelegate,

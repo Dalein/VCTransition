@@ -8,6 +8,7 @@
 
 #import "GITransition.h"
 #import "UIView+ToucheRespond.h"
+#import <objc/runtime.h>
 
 @implementation GITransition {
     
@@ -16,8 +17,6 @@
     BOOL isModalVCOnBottom;
     BOOL reversed;
 }
-
-int const GITransitionContainerViewTag = 73;
 
 #pragma mark - UIViewControllerTransitioningDelegate
 
@@ -48,7 +47,15 @@ int const GITransitionContainerViewTag = 73;
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *containerView = [transitionContext containerView];
-    containerView.tag = GITransitionContainerViewTag;
+   
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Swizzling
+        Method originalMethod = class_getInstanceMethod([containerView class], @selector(hitTest:withEvent:));
+        Method swappedMethod = class_getInstanceMethod([containerView class], @selector(GI_hitTest:withEvent:));
+        method_exchangeImplementations(originalMethod, swappedMethod);
+    });
+
     
     CGRect finalFrameVC = [transitionContext finalFrameForViewController:toVC];
     NSTimeInterval duration = [self transitionDuration:transitionContext];
