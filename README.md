@@ -1,11 +1,11 @@
 
-#VCTransition
+# VCTransition
 The heart of this project is GITransition object, it adopts `UIViewControllerAnimatedTransitioning` and `UIGestureRecognizerDelegate` protocol, which allows you to have one view controller at the bottom, and on the same time keeping your main navigation separate. This was inspired by the iOS 8 emails implementation where you can have your new email open at the bottom while still viewing all your old emails above it.
 
-#Demo
+# Demo
 ![Demo](https://raw.githubusercontent.com/Dalein/VCTransition/master/demo.gif)
 
-#Example
+# Example
 ```objectivec
     transitionManager = [[GITransition alloc] init];
     self.transitioningDelegate = transitionManager;
@@ -21,7 +21,7 @@ The heart of this project is GITransition object, it adopts `UIViewControllerAni
 }
 ```
 
-#Usage
+# Usage
 Copy GITransition folder into your project.
 
 # License 
